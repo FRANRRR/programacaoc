@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+
+int tabuleiro[10][10] = {0}; // Tabuleiro de xadrez 10x10 inicializado com zeros
+
+int navio_1 [3] = {3, 3, 3}; // Navio vertical
+int navio_2 [3] = {3, 3, 3}; // Navio horizontal
+int navio_3 [3] = {3, 3, 3}; // Navio diagonal frente
+int navio_4 [3] = {3, 3, 3}; // Navio diagonal ré
+
+
+int x_navio_1 = 1,   y_navio_1 = 3; // Posição do navio vertical
+int x_navio_2 = 1,   y_navio_2 = 5; // Posição do navio horizontal
+int x_navio_3 = 7,   y_navio_3 = 1; // Posição do navio diagonal frente
+int x_navio_4 = 4,   y_navio_4 = 8; // Posição do navio diagonal ré
+
+int main() {
+    for (int i = 0; i <3; i++) {
+        tabuleiro [x_navio_1][y_navio_1 +i] = navio_1[i]; // Coloca o navio vertical no tabuleiro
+    }
+
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[x_navio_2 + i][y_navio_2] = navio_2[i]; // Coloca o navio horizontal no tabuleiro
+    }
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[x_navio_3 + i][y_navio_3 + i] = navio_3[i]; // Coloca o navio diagonal frente no tabuleiro
+    }
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[x_navio_4 + i][y_navio_4 - i] = navio_4[i]; // Coloca o navio diagonal ré no tabuleiro
+    }
+
+    printf("Tabuleiro de Xadrez:\n");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
